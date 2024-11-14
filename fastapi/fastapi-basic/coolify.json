@@ -1,0 +1,30 @@
+{
+    "build_pack": "nixpacks",
+    "base_directory": "/app",
+    "publish_directory": "/",
+    "ports_exposes": "3001",
+    "settings": {
+        "is_static": false
+    }
+}
+
+
+{
+    "name": "FastAPI Coolify Template",
+    "description": "Deploy FastAPI without Dockerfile using Python",
+    "type": "python",
+    "build": {
+      "installCommand": "poetry install --no-root --only main",
+      "startCommand": "poetry run uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    },
+    "port": 8000,
+    "environment": {
+      "variables": [
+        {
+          "name": "PYTHONUNBUFFERED",
+          "value": "1"
+        }
+      ]
+    }
+  }
+  
